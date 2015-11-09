@@ -1,0 +1,69 @@
+Name	Amount of money	number of players	number of tournaments
+Dota 2	26,290,097.05	861 	183 
+League of Legends	6,840,218.78	1732 	256 
+Counter-Strike: Global Offensive	4,595,360.74	2346 	540 
+Smite	3,038,483.10	183 	32 
+StarCraft II	2,613,832.32	436 	557 
+Call of Duty: Advanced Warfare	2,467,129.90	718 	332 
+Heroes of the Storm	1,972,676.62	594 	204 
+Hearthstone: Heroes of WarCraft	1,868,019.33	488 	211 
+Heroes of Newerth	469,819.43	209 	29 
+World of WarCraft	467,111.77	77 	15 
+World of Tanks	392,797.19	237 	13 
+Halo 2 Anniversary	378,667.45	77 	13 
+Super Smash Bros. Melee	311,489.66	266 	157 
+Mortal Kombat X	230,985.54	58 	34 
+Ultra Street Fighter IV	198,160.57	100 	62 
+Super Smash Bros. for Wii U	178,361.48	247 	116 
+H1Z1	173,328.00	20 	2 
+StarCraft: Brood War	143,275.24	62 	25 
+Age of Empires II: The Age of Kings	130,000.00	62 	3 
+FIFA 15	128,912.62	143 	295 
+CrossFire	127,886.34	41 	7 
+Evolve	119,798.23	98 	28 
+Killer Instinct (2013)	82,435.27	37 	10 
+Battlefield 4	73,988.91	87 	59 
+WarCraft III	66,638.99	29 	39 
+S.K.I.L.L. Special Force 2	61,536.45	67 	15 
+Quake Live	48,736.57	50 	35 
+Point Blank	46,737.75	92 	9 
+Tekken 7	34,580.00	8 	1 
+Project M	32,445.07	117 	36 
+Guilty Gear Xrd -SIGN-	27,070.59	52 	14 
+Team Fortress 2	26,405.74	63 	6 
+FIFA Online 3	20,124.00	8 	2 
+TrackMania 2: Stadium	19,721.44	13 	7 
+Ultimate Marvel vs. Capcom 3	17,149.41	58 	17 
+ShootMania Storm	17,028.67	9 	4 
+Persona 4 Arena Ultimax	16,150.00	33 	7 
+Guild Wars 2	15,930.14	17 	32 
+FIFA 16	15,715.32	12 	5 
+Battlefield Hardline	13,463.28	20 	1 
+Super Smash Bros.	10,861.98	46 	10 
+Super Smash Bros. Brawl	9,300.00	40 	5 
+Call of Duty: Black Ops 2	5,000.00	4 	1 
+Skullgirls Encore	3,793.10	20 	5 
+NHL 15	3,157.16	3 	3 
+Dead or Alive 5: Last Round	2,782.23	25 	5 
+Call of Duty 4: Modern Warfare	2,703.33	0 	1 
+NHL '94	2,691.20	16 	2 
+Reflex	1,962.00	9 	3 
+Rocket League	1,935.27	24 	19 
+Tekken Tag  2	1,650.00	22 	7 
+Under Night In-Birth EXE: Late	1,150.00	23 	6 
+Divekick	1,110.00	5 	2 
+King of Fighters XIII	1,079.21	25 	6 
+Shards of War	1,029.21	20 	1 
+Rising Thunder	1,000.00	3 	1 
+Street Fighter III: 3rd Strike	985.86	7 	3 
+Splatoon	720.00	3 	1 
+BlazBlue: Chronophantasma Extend	623.17	9 	3 
+TrackMania 2: Canyon	540.66	3 	1 
+Nitroplus Blasterz: Heroines Infinite Duel	464.00	3 	1 
+Soul Calibur V	330.00	11 	2 
+Injustice: Gods Among Us	320.00	7 	2 
+Ultimate Mortal Kombat 3	150.00	3 	1 
+Guilty Gear XX Accent Core Plus R	120.00	10 	2 
+Capcom vs. SNK 2	61.79	3 	1 
+Dengeki Bunko: Fighting Climax	60.00	3 	1 
+QuakeWorld	55.09	1 Player	1 
