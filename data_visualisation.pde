@@ -1,5 +1,6 @@
 ArrayList<YearlyData> yearlyData = new ArrayList<YearlyData>();
 ArrayList<Esports> esports = new ArrayList<Esports>();
+LineGraph graph;
 
 
 void setup()
@@ -7,10 +8,12 @@ void setup()
  size(displayWidth, displayHeight); 
  background(0);
  loadData();
+ graph = new LineGraph(yearlyData, 5);
 }
 
 void draw()
 {
+  graph.render();
   
 }
 
