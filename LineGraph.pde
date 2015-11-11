@@ -37,7 +37,13 @@ class LineGraph
     line(x1, y2, x2, y2);//drawing the xAxis
     line(x1, y2, x1, y1);//drawing the yAxis
     
+    renderYearly();
     //a for each loop to determine and assign the maximum value
+  }
+    
+  
+  void renderYearly()
+  {
     for(YearlyData y:graph)
     {
       if(y.total_players>max)
@@ -108,5 +114,6 @@ class LineGraph
     
     
   }
+    
   
 }

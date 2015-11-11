@@ -1,20 +1,30 @@
 ArrayList<YearlyData> yearlyData = new ArrayList<YearlyData>();//declaring a new arraylist of type YearlyData
 ArrayList<Esports> esports = new ArrayList<Esports>();//declaring a new arraylist of type Esports
 LineGraph graph;
+Button lineButton;
 
 
 void setup()
 {
  size(displayWidth, displayHeight); 
  loadData();
+
+ lineButton = new Button(0,0,100,30,"Line Graph");
+  
  graph = new LineGraph(yearlyData, 5);
+ 
 
 }
 
 void draw()
 {
   background(0);
+  if(lineButton.pressed)
+ {
   graph.render();//drawing th line graph
+ }
+  lineButton.drawButton();
+  lineButton.buttonPressed();
   
 }
 
