@@ -3,7 +3,7 @@ ArrayList<Esports> esports = new ArrayList<Esports>();//declaring a new arraylis
 LineGraph graph;
 Button lineButton;
 Button homeButton;
-Button esportButton;
+//Button esportButton;
 
 
 void setup()
@@ -13,7 +13,7 @@ void setup()
 
  lineButton = new Button(100,0,100,30,"Line Graph");
  homeButton = new Button(0,0,100,30,"Home");
- esportButton = new Button(200,0,100,30,"Esport");
+ //esportButton = new Button(200,0,100,30,"Esport");
   
  graph = new LineGraph(yearlyData, 5);
  
@@ -25,20 +25,15 @@ void draw()
   background(0);
   homeButton.drawButton();
   lineButton.drawButton();
-  esportButton.drawButton();
   homeButton.pressed = true;
   
+  
+  //button switching, not quite working how i want it to
   if(lineButton.pressed)
  {
   graph.render();//drawing th line graph
   graph.renderYearly();
   homeButton.pressed = false;
-  esportButton.pressed = false;
- }
- if(esportButton.pressed)
- {
-   homeButton.pressed = false;
-   homeButton.pressed= false;
  }
   if(homeButton.pressed)
  {

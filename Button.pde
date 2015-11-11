@@ -22,6 +22,7 @@ class Button
   //method to draw button
   void drawButton()
   {
+    // checking the status of the button then changing the colour depending
     if(pressed)
     {
       colourB = 0;
@@ -34,6 +35,7 @@ class Button
       colourR = 200;
       colourG = 0;
     }
+    
     textSize(15);
     stroke(0);
     fill(colourR,colourG,colourB);
