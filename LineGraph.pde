@@ -36,9 +36,6 @@ class LineGraph
     stroke(255);
     line(x1, y2, x2, y2);//drawing the xAxis
     line(x1, y2, x1, y1);//drawing the yAxis
-    
-    renderYearly();
-    //a for each loop to determine and assign the maximum value
   }
     
   
@@ -83,12 +80,13 @@ class LineGraph
           ellipse(x2-xinc,mapped,10,10);
           
           textAlign(CENTER,BOTTOM);
-          
           reduc = y.total_prize/1000000;
-          text("Total prize money mill $"+String.format("%.2f",reduc),(x2-xinc)-100,mapped);
           
-          text("Total players "+y.total_players,(x2-xinc)-100,mapped+20);
-          text("Total tournaments "+y.total_tourn,(x2-xinc)-100,mapped+40);
+          text("Total prize money mill $"+String.format("%.2f",reduc),width/2,height/2);
+          text("Total players "+y.total_players,width/2,height/2+20);
+          text("Total tournaments "+y.total_tourn,width/2,height/2+40);
+          
+          
         }
       }
       stroke(255);

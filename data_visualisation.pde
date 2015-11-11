@@ -22,6 +22,7 @@ void draw()
   if(lineButton.pressed)
  {
   graph.render();//drawing th line graph
+  graph.renderYearly();
  }
   lineButton.drawButton();
   lineButton.buttonPressed();
