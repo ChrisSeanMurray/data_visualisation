@@ -5,7 +5,7 @@ class Esports
   int players;
   int tourns;
   
-  Esports(String line)
+  Esports(String line)//Constructor
   {
     String[] parts = line.split("\t");
     name = parts[0];

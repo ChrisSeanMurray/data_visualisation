@@ -7,7 +7,7 @@ class YearlyData
   float player_avr;
   int total_players;
   
-  YearlyData(String line)
+  YearlyData(String line)//Constructor
   {
     String[] parts = line.split("\t");
     year = Integer.parseInt(parts[0]);
