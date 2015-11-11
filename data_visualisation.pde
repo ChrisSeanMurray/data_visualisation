@@ -2,6 +2,8 @@ ArrayList<YearlyData> yearlyData = new ArrayList<YearlyData>();//declaring a new
 ArrayList<Esports> esports = new ArrayList<Esports>();//declaring a new arraylist of type Esports
 LineGraph graph;
 Button lineButton;
+Button homeButton;
+Button esportButton;
 
 
 void setup()
@@ -9,7 +11,9 @@ void setup()
  size(displayWidth, displayHeight); 
  loadData();
 
- lineButton = new Button(0,0,100,30,"Line Graph");
+ lineButton = new Button(100,0,100,30,"Line Graph");
+ homeButton = new Button(0,0,100,30,"Home");
+ esportButton = new Button(200,0,100,30,"Esport");
   
  graph = new LineGraph(yearlyData, 5);
  
@@ -19,14 +23,28 @@ void setup()
 void draw()
 {
   background(0);
+  homeButton.drawButton();
+  lineButton.drawButton();
+  esportButton.drawButton();
+  homeButton.pressed = true;
+  
   if(lineButton.pressed)
  {
   graph.render();//drawing th line graph
   graph.renderYearly();
+  homeButton.pressed = false;
+  esportButton.pressed = false;
  }
-  lineButton.drawButton();
-  lineButton.buttonPressed();
-  
+ if(esportButton.pressed)
+ {
+   homeButton.pressed = false;
+   homeButton.pressed= false;
+ }
+  if(homeButton.pressed)
+ {
+   lineButton.pressed = false;
+ }
+ 
 }
 
 void loadData()//loading the data from yearly_total.txt into a new object

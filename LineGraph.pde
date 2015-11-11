@@ -63,7 +63,7 @@ class LineGraph
     temp = 0;
     for(YearlyData y:graph)//this for loop plots the points on the graph
     {
-      mapped = map(y.total_players,min,max,height-border,border);
+      mapped = mapData(y.total_players,min,max);
       
       if(temp != 0)
       {
@@ -78,14 +78,13 @@ class LineGraph
         {
           fill(120,0,0);
           ellipse(x2-xinc,mapped,10,10);
-          
-          textAlign(CENTER,BOTTOM);
           reduc = y.total_prize/1000000;
           
-          text("Total prize money mill $"+String.format("%.2f",reduc),width/2,height/2);
-          text("Total players "+y.total_players,width/2,height/2+20);
-          text("Total tournaments "+y.total_tourn,width/2,height/2+40);
-          
+          textAlign(CENTER,BOTTOM);
+          textSize(26);
+          text("Total prize money in millions $"+String.format("%.2f",reduc),width/2,height/2-100);
+          text("Total players : "+y.total_players,width/2,height/2-70);
+          text("Total tournaments :  "+y.total_tourn,width/2,height/2-40);
           
         }
       }
@@ -94,24 +93,21 @@ class LineGraph
       temp = mapped;
     }
     
-    
-    
-    
     x2 = width-border;
     temp = x1;
     for(YearlyData y:graph)//drawing the lines along the xAxis base
     {
+      textSize(26);
       fill(255);
       line(x2, y2, x2, y2+15);
       textAlign(CENTER,TOP);
-      text(y.year,x2,y2+30);
+      text(y.year,x2,y2+10);
       x2 -= xinc;
-      
     }
-    
-    
-    
   }
-    
-  
+  float mapData(float value, float min, float max)
+  {
+    float mappedData = map(value,min,max,height-border,border);
+    return mappedData;
+  }
 }
