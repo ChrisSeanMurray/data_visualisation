@@ -1,8 +1,11 @@
 ArrayList<YearlyData> yearlyData = new ArrayList<YearlyData>();//declaring a new arraylist of type YearlyData
 ArrayList<Esports> esports = new ArrayList<Esports>();//declaring a new arraylist of type Esports
-LineGraph graph;
+LineGraph yearlyGraph;
+LineGraph esportGraph;
 Button lineButton;
 Button homeButton;
+Button lineYearly;
+Button lineEsport;
 //Button esportButton;
 
 
@@ -13,9 +16,12 @@ void setup()
 
  lineButton = new Button(100,0,100,30,"Line Graph");
  homeButton = new Button(0,0,100,30,"Home");
- //esportButton = new Button(200,0,100,30,"Esport");
+ lineYearly = new Button(100,30,100,30,"Yearly Trend");
+ lineEsport = new Button(200,30,100,30,"2015 Trend");
+ 
   
- graph = new LineGraph(yearlyData, 5);
+ yearlyGraph = new LineGraph(yearlyData);
+ esportGraph = new LineGraph(esports);
  
 
 }
@@ -31,9 +37,21 @@ void draw()
   //button switching, not quite working how i want it to
   if(lineButton.pressed)
  {
-  graph.render();//drawing th line graph
-  graph.renderYearly();
-  homeButton.pressed = false;
+   lineEsport.drawButton();
+   lineYearly.drawButton();
+   if(lineYearly.pressed)
+   {
+     //drawing th line yearlyGraph
+     yearlyGraph.render();
+     yearlyGraph.renderYearly();
+   }
+   if(lineEsport.pressed)
+   {
+     esportGraph.render();
+     esportGraph.render2015();
+   }
+   
+   homeButton.pressed = false;
  }
   if(homeButton.pressed)
  {
@@ -52,9 +70,9 @@ void loadData()//loading the data from yearly_total.txt into a new object
   }
   
   String[] eLines = loadStrings("top_games_2015.txt");//loading the data from top_games_2015.txt into a new object
-  for(int i = 0; i <lines.length; i++)
+  for(String s:eLines)
   {
-    Esports esport = new Esports(eLines[i]);
+    Esports esport = new Esports(s);
     esports.add(esport);//adding the object esport into the arraylist
   }
 }
