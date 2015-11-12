@@ -4,8 +4,8 @@ LineGraph yearlyGraph;
 LineGraph esportGraph;
 Button lineButton;
 Button homeButton;
-Button lineYearly;
-Button lineEsport;
+Button pieEsport;
+PieChart esportPie;
 //Button esportButton;
 
 
@@ -16,13 +16,13 @@ void setup()
 
  lineButton = new Button(100,0,100,30,"Line Graph");
  homeButton = new Button(0,0,100,30,"Home");
- lineYearly = new Button(100,30,100,30,"Yearly Trend");
- lineEsport = new Button(200,30,100,30,"2015 Trend");
+ pieEsport = new Button(200,0,100,30,"Pie Chart");
  
   
  yearlyGraph = new LineGraph(yearlyData);
- esportGraph = new LineGraph(esports);
+ esportPie = new PieChart(esports);
  
+  homeButton.pressed = true;
 
 }
 
@@ -31,32 +31,35 @@ void draw()
   background(0);
   homeButton.drawButton();
   lineButton.drawButton();
-  homeButton.pressed = true;
-  
-  
-  //button switching, not quite working how i want it to
-  if(lineButton.pressed)
- {
-   lineEsport.drawButton();
-   lineYearly.drawButton();
-   if(lineYearly.pressed)
-   {
-     //drawing th line yearlyGraph
-     yearlyGraph.render();
-     yearlyGraph.renderYearly();
-   }
-   if(lineEsport.pressed)
-   {
-     esportGraph.render();
-     esportGraph.render2015();
-   }
-   
-   homeButton.pressed = false;
- }
+  pieEsport.drawButton();
   if(homeButton.pressed)
  {
+   fill(255);
+   textAlign(CENTER);
+   textSize(40);
+   text("WELCOME TO THE HOME SCREEN",width/2,height/3);
+   text("PLEASE SELCT WHICH GRAPH YOU WOULD LIKE TO VIEW",width/2,height/3+50);
    lineButton.pressed = false;
+   pieEsport.pressed = false;
  }
+ //button switching, not quite working how i want it to
+  if(lineButton.pressed)
+  {
+   //drawing th line yearlyGraph
+    yearlyGraph.render();
+    yearlyGraph.renderYearly();
+    homeButton.pressed = false;
+    pieEsport.pressed = false;
+   }
+ 
+ if(pieEsport.pressed)
+   {
+     esportPie.chartRender();
+     homeButton.pressed = false;
+     lineButton.pressed = false;
+   }
+  
+  
  
 }
 

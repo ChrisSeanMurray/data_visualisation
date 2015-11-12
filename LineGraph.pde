@@ -7,7 +7,6 @@ class LineGraph
   float len;
   float xinc;
   ArrayList<YearlyData> yearlyGraph = new ArrayList<YearlyData>();
-  ArrayList<Esports> esportGraph = new ArrayList<Esports>();
   float max;
   float map;
   float min;
@@ -16,7 +15,6 @@ class LineGraph
   
   LineGraph(ArrayList graph)//Constructor
   {
-    esportGraph = graph;
     yearlyGraph = graph;
   }
   
@@ -36,89 +34,15 @@ class LineGraph
     line(x1, y2, x2, y2);//drawing the xAxis
     line(x1, y2, x1, y1);//drawing the yAxis
   }
-  
-  void render2015()
+ 
+  void renderYearly()
   {
     fill(255);
     textAlign(CENTER);
     textSize(30);
-    text("Line Graph for esports for the year 2015, based on number of players",width/2,border*3);
-    len = esportGraph.size()-1;
-    for(Esports e:esports)
-    {
-      if(e.players>max)
-      {
-        max = e.players;
-      }
-    }
-    
-    min = -50;
-    //a for each loop to determin and assign the minmum value
-    for(Esports e:esports)
-    {
-      if(e.players<min)
-      {
-        min = e.players;
-      }
-    }
-    
-    x2+=xinc;
-    temp = 0;
-    for(Esports e:esports)//this for loop plots the points on the graph
-    {
-      mapped = mapData(e.players,min,max);
-      
-      if(temp != 0)
-      {
-        stroke(0,0,120);
-       line(x2-xinc,mapped,x2,temp); 
-      }
-      if(mouseX>border && mouseX<width-border && mouseY>border && mouseY<height-border)
-      {
-        stroke(120,0,0);
-        line(mouseX,y2,mouseX,y1);
-        if(mouseX<(x2-xinc)+(xinc/2) && mouseX>(x2-xinc)-(xinc/2))
-        {
-          fill(120,0,0);
-          ellipse(x2-xinc,mapped,10,10);
-          
-          textAlign(CENTER,BOTTOM);
-          textSize(26);
-          text(e.name,width/2,height/2-100);
-          text("Number of players : "+e.players,width/2,height/2-70);
-          text("Number of tournaments :  "+e.tourns,width/2,height/2-40);
-          if(e.money>1000000)
-          {
-           float reduced = e.money/1000000;
-           text("Amount of Prize money in millions $"+String.format("%.2f",reduced),width/2,height/2-10);
-          }
-          else
-          {
-            text("Amount of Prize money $"+e.money,width/2,height/2-10);
-          }
-          
-        }
-      }
-      stroke(255);
-      x2-=xinc;
-      temp = mapped;
-    }
-    
-    x2 = width-border;
-    temp = x1;
-    for(Esports e:esports)//drawing the lines along the xAxis base
-    {
-      fill(255);
-      line(x2, y2, x2, y2+10);
-      x2 -= xinc;
-    }
-  }
-    
-    
-  
-  void renderYearly()
-  {
+    text("Line Graph Showing the evolution of Esports based on number of players",width/2,border*3);
     len = yearlyGraph.size()-1;
+    
     //a loop to determine the maximum value
     for(YearlyData y:yearlyGraph)
     {
@@ -152,7 +76,6 @@ class LineGraph
       if(mouseX>border && mouseX<width-border && mouseY>border && mouseY<height-border)
       {
         stroke(120,0,0);
-        line(mouseX,y2,mouseX,y1);
         if(mouseX<(x2-xinc)+(xinc/2) && mouseX>(x2-xinc)-(xinc/2))
         {
           fill(120,0,0);
