@@ -17,7 +17,7 @@ class PieChart
     fill(255);
     stroke(0);
     
-    centX = width/2;
+    centX = width/2+200;
     centY = height/2;
     border = 60;
     circleSize = height-border;
@@ -29,11 +29,16 @@ class PieChart
     float toMouseX = mouseX - centX;
     float toMouseY = mouseY - centY;
     float angle = atan2(toMouseY,toMouseX);
+    textSize(30);
+    textAlign(CENTER);
+    text("Esports Based on the player base",centX,30);
     
     if(angle < 0)
     {
-      angle = PI - angle;
+      angle = map(angle, -PI, 0, PI, TWO_PI);
     }
+    
+    println(angle);
     
     for(Esports p:esports)
     {
@@ -57,8 +62,17 @@ class PieChart
       {
         textSize(20);
         textAlign(LEFT);
-        text(p.name,30,height/3);
-        text(p.money,30,height/3+30);
+        text(p.name,0,height/3);
+        text("Number of active players "+p.players,0,height/3+20);
+        text("Number of Tournaments"+p.tourns,0,height/3+40);
+        if(p.money>1000000)
+        {
+          text("Prize money in millions $"+String.format("%.2f",p.money/1000000),0,height/3+60);
+        }
+        else
+        {
+          text("Prize money $"+p.money,0,height/3+60);
+        }
       }
     
       arc(centX,centY,circleSize,circleSize,last,current);
