@@ -22,7 +22,7 @@ void setup()
  yearlyGraph = new LineGraph(yearlyData);
  esportPie = new PieChart(esports);
  
-  homeButton.pressed = true;
+  pieEsport.pressed = true;
 
 }
 
