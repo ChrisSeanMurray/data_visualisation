@@ -4,7 +4,7 @@ class Esports
   float money;
   int players;
   int tourns;
-  
+
   Esports(String line)//Constructor
   {
     String[] parts = line.split("\t");
