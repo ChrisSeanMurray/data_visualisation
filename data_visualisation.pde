@@ -1,72 +1,63 @@
 ArrayList<YearlyData> yearlyData = new ArrayList<YearlyData>();//declaring a new arraylist of type YearlyData
 ArrayList<Esports> esports = new ArrayList<Esports>();//declaring a new arraylist of type Esports
+ArrayList<Button> buttons = new ArrayList<Button>();
 LineGraph yearlyGraph;
 Button lineButton;
-Button homeButton;
 Button pieEsport;
 PieChart esportPie;
 NewGraph esportGraph;
 Button graphButton;
-//Button esportButton;
 
 
 void setup()
 {
   size(displayWidth, displayHeight); 
   loadData();
+  float buttonSize = 100;
 
-  lineButton = new Button(100, 0, 100, 30, "Line Graph");
-  homeButton = new Button(0, 0, 100, 30, "Home");
-  pieEsport = new Button(200, 0, 100, 30, "Pie Chart");
-  graphButton = new Button(300, 0, 100, 30, "Other Graph");
+  lineButton = new Button(0, 0, buttonSize, 30, "Line Graph");
+  pieEsport = new Button(100, 0, buttonSize, 30, "Pie Chart");
+  graphButton = new Button(200, 0, buttonSize, 30, "Other Graph");
+
+  buttons.add(lineButton);
+  buttons.add(pieEsport);
+  buttons.add(graphButton);
 
 
   yearlyGraph = new LineGraph(yearlyData);
   esportPie = new PieChart(esports);
   esportGraph = new NewGraph(esports);
 
-  pieEsport.pressed = true;
+  graphButton.pressed = true;
 }
 
 void draw()
 {
+  int temp = 0;
   background(0);
-  homeButton.drawButton();
-  lineButton.drawButton();
-  pieEsport.drawButton();
-  graphButton.drawButton();
-  if (homeButton.pressed)
+  for (int i = 0; i < buttons.size(); i++)
   {
-    fill(255);
-    textAlign(CENTER);
-    textSize(40);
-    text("WELCOME TO THE HOME SCREEN", width/2, height/3);
-    text("PLEASE SELCT WHICH GRAPH YOU WOULD LIKE TO VIEW", width/2, height/3+50);
-    lineButton.pressed = false;
-    pieEsport.pressed = false;
-    graphButton.pressed= false;
+    buttons.get(i).drawButton();
   }
+
+
   //button switching, not quite working how i want it to
   if (lineButton.pressed)
   {
-    //drawing th line yearlyGraph
+    //drawing th lineGraph
     yearlyGraph.renderYearly();
-    homeButton.pressed = false;
     pieEsport.pressed = false;
-    graphButton.pressed= false;
-  }
-
-  if (pieEsport.pressed)
+    graphButton.pressed = false;
+  } else if (pieEsport.pressed)
   {
+    //Calling the method to render the pie chart
     esportPie.chartRender();
-    homeButton.pressed = false;
+    graphButton.pressed = false;
     lineButton.pressed = false;
-    graphButton.pressed= false;
-  }
-  if (graphButton.pressed)
+  } else if (graphButton.pressed)
   {
+    //calling the method to draw the graph
     esportGraph.render();
-    homeButton.pressed = false;
     pieEsport.pressed = false;
     lineButton.pressed = false;
   }

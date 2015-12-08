@@ -1,13 +1,13 @@
 class Button
 {
-  int x, y;
-  int xLen, yLen;
+  float x, y;
+  float xLen, yLen;
   String title;
   int colourR, colourG, colourB;
   boolean pressed = false;
 
   //Constructor
-  Button(int x, int y, int xLen, int yLen, String title)
+  Button(float x, float y, float xLen, float yLen, String title)
   {
     this.x = x;
     this.y = y;
@@ -51,12 +51,16 @@ class Button
 
   void buttonPressed()
   {
-
+    //checks to see if the mouse is contained within the button and it is false
+    //then toggle it to true
     if (mousePressed && mouseX>x && mouseX<x+xLen && mouseY > y && mouseY < y+yLen && !pressed)
     {
       pressed = true;
       delay(120);
-    } else if (mousePressed && mouseX>x && mouseX<x+xLen && mouseY > y && mouseY < y+yLen && pressed)
+    }
+    //checks if the mouse is withing the button and is true
+    //then toggle it to false
+    else if (mousePressed && mouseX>x && mouseX<x+xLen && mouseY > y && mouseY < y+yLen && pressed)
     {
       pressed = false;
       delay(120);

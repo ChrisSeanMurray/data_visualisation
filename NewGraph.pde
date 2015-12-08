@@ -1,18 +1,19 @@
 class NewGraph
 {
   float centX, centY;
-  ArrayList graph;
+  ArrayList<Esports> graph;
   float xBorder;
   float yBorder;
 
-  NewGraph(ArrayList graph)
+  //contructor
+  NewGraph(ArrayList<Esports> graph)
   {
     this.graph = graph;
     yBorder = 50;
     xBorder = 20;
   }
 
-  void render()
+  void render()//method for handling the graph
   {
     float colourR, colourB, colourG;
     centX = xBorder;
@@ -24,15 +25,19 @@ class NewGraph
     float w = 0;
     float max = 0;
     float min;
-    for (Esports y : esports)
+    float temp;
+
+    //Getting the max value
+    for (Esports y : graph)
     {
       if (y.players>max)
       {
         max = y.players;
       }
     }
+    //getting the min value
     min = max;
-    for (Esports y : esports)
+    for (Esports y : graph)
     {
       if (y.players<min)
       {
@@ -49,28 +54,46 @@ class NewGraph
 
     y1 = yBorder + halfW;
     y2 = yBorder+w*1.5f;
-    for (Esports y : esports)
+
+    for (Esports y : graph)
     {
       fill(0);
       colourR = y.players%256;
       colourG = (y.players*2)%256;
       colourB = (sq(y.players))%256;
       stroke(colourR, colourG, colourB);
+      temp = y.players;
 
+      //drawing out the men
       for (int i = 0; i < y.players/quant; i++)
       {
-        ellipse(centX, centY, w, w);
-        line(x1, y1, x1, y2);
-        line(x1-halfW, y1+halfW, x1+halfW, y1+halfW);
-        line(x1, y2, x1-halfW, y2+halfW);
-        line(x1, y2, x1+halfW, y2+halfW);
+        //determining whether to draw a full man
+        if (temp >= min)
+        {
+          ellipse(centX, centY, w, w);
+          line(x1, y1, x1, y2);
+          line(x1-halfW, y1+halfW, x1+halfW, y1+halfW);
+          line(x1, y2, x1-halfW, y2+halfW);
+          line(x1, y2, x1+halfW, y2+halfW);
+        } 
+        //determining whether to draw a half man
+        else if (temp < min)
+        {
+          arc(centX, centY, w, w, HALF_PI, PI+HALF_PI);
+          line(x1, y1, x1, y2);
+          line(x1-halfW, y1+halfW, x1, y1+halfW);
+          line(x1, y2, x1-halfW, y2+halfW);
+        }
         x1+=w;
         centX += w;
+        temp = temp - min;
       }
+      
       textAlign(CENTER);
       textSize(50);
       fill(colourR, colourG, colourB);
-      if (mouseY>centY-halfW && mouseY< y2+halfW)
+      //checking the mouse y co-ordinates to display the correct text on screen
+      if (mouseY>centY-w && mouseY< y2+halfW)
       {
         text(y.name, width/2, height/2);
       }

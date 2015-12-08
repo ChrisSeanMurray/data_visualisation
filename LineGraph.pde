@@ -17,11 +17,6 @@ class LineGraph
   {
     yearlyGraph = graph;
   }
-
-  public void render()
-  {
-  }
-
   void renderYearly()
   {
     border = 60;
@@ -70,15 +65,17 @@ class LineGraph
 
       if (temp != 0)
       {
-        stroke(0, 0, 120);
+        stroke(0, 200, 120);
         line(x2-xinc, mapped, x2, temp);
       }
+      //checks that the mouse is within the graph
       if (mouseX>border && mouseX<width-border && mouseY>border && mouseY<height-border)
       {
-        stroke(120, 0, 0);
+        stroke(120, 0, 120);
+        //check to see if mouse is hovering near a plotted point on the graph so it can display the right text
         if (mouseX<(x2-xinc)+(xinc/2) && mouseX>(x2-xinc)-(xinc/2))
         {
-          fill(120, 0, 0);
+          fill(120, 0, 120);
           ellipse(x2-xinc, mapped, 10, 10);
           reduc = y.total_prize/1000000;
 
@@ -106,7 +103,8 @@ class LineGraph
       x2 -= xinc;
     }
   }
-
+  
+  // method to map the points to fit the graph
   float mapData(float value, float min, float max)
   {
     float mappedData = map(value, min, max, height-border, border);
